@@ -17,6 +17,7 @@ const controlSearch = async () => {
     try {
       await state.search.getResults();
       clearLoader();
+      searchView.renderResult(state.search.result);
     } catch (error) {
       alert("Error Search");
     }
