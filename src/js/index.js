@@ -1,5 +1,5 @@
 import * as searchView from "./view/searchView";
-import { elements } from "./view/base";
+import { clearLoader, elements, renderLoader } from "./view/base";
 import Search from "./modal/search";
 
 const state = {};
@@ -12,9 +12,11 @@ const controlSearch = async () => {
   if (query) {
     state.search = new Search(query);
     searchView.clearInput();
+    renderLoader(elements.searchResultList);
 
     try {
       await state.search.getResults();
+      clearLoader();
     } catch (error) {
       alert("Error Search");
     }
