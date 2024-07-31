@@ -2,6 +2,9 @@ import { elements } from "./base";
 
 export const getInput = () => elements.searchInput.value;
 export const clearInput = () => (elements.searchInput.value = "");
+export const clearResult = () => {
+  elements.searchResultList.innerHTML = "";
+};
 
 const limitRecipeTitle = (title, limit = 17) => {
   const newTitle = [];

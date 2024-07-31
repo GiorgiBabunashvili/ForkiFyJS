@@ -12,6 +12,7 @@ const controlSearch = async () => {
   if (query) {
     state.search = new Search(query);
     searchView.clearInput();
+    searchView.clearResult();
     renderLoader(elements.searchResultList);
 
     try {
