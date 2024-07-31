@@ -1,5 +1,11 @@
 import { elements } from "./view/base";
 
-elements.searchForm.addEventListener("submit", () => {});
+// Search controler
+const controlSearch = () => {};
+
+elements.searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  controlSearch();
+});
 
 // `http://forkify-api.herokuapp.com/api/search?q=${this.query}`
