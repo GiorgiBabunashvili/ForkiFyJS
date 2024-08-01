@@ -1,6 +1,7 @@
 import * as searchView from "./view/searchView";
 import { clearLoader, elements, renderLoader } from "./view/base";
 import Search from "./modal/search";
+import Recipe from "./modal/recipe";
 
 const state = {};
 window.state = state;
@@ -41,9 +42,18 @@ elements.searchResultPage.addEventListener("click", (e) => {
 });
 
 //Control recipe
-const controlRecipe = () => {
+const controlRecipe = async () => {
   const id = window.location.hash.replace("#", "");
+
+  if (id) {
+    state.recipe = new Recipe(id);
+
+    try {
+      await state.recipe.getRecipe();
+    } catch (error) {
+      alert("Error recipe");
+    }
+  }
 };
 
 window.addEventListener("hashchange", controlRecipe);
-// `https://forkify-api.herokuapp.com/api/get?rId=${this.id}`
