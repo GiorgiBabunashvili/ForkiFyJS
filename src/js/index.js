@@ -39,3 +39,11 @@ elements.searchResultPage.addEventListener("click", (e) => {
     searchView.renderResult(state.search.result, gotoPage);
   }
 });
+
+//Control recipe
+const controlRecipe = () => {
+  const id = window.location.hash.replace("#", "");
+};
+
+window.addEventListener("hashchange", controlRecipe);
+// `https://forkify-api.herokuapp.com/api/get?rId=${this.id}`
