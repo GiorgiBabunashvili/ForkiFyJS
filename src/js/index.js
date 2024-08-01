@@ -46,10 +46,12 @@ const controlRecipe = async () => {
   const id = window.location.hash.replace("#", "");
 
   if (id) {
+    renderLoader(elements.recipe);
     state.recipe = new Recipe(id);
 
     try {
       await state.recipe.getRecipe();
+      clearLoader();
     } catch (error) {
       alert("Error recipe");
     }
