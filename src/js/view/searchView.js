@@ -41,9 +41,23 @@ const renderRecipe = (recipe) => {
   elements.searchResultList.insertAdjacentHTML("beforeend", markup);
 };
 
+const renderButton = (page, numResults, resPerPage) => {
+  const pages = Math.ceil(numResults / resPerPage)
+
+  if(){
+    //Only next button
+  }else if () {
+    //Both buttons
+  }else if () {
+    //Only brev button
+  }
+}
+
 export const renderResult = (recipe, page = 1, resPerPage = 5) => {
   const start = (page - 1) * resPerPage;
   const end = page * resPerPage;
-
   recipe.slice(start, end).forEach(renderRecipe);
+
+  //render pagiation buttons
+  renderButton(page, recipes.length, resPerPage);
 };
