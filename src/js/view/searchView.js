@@ -42,16 +42,16 @@ const renderRecipe = (recipe) => {
 };
 
 const renderButton = (page, numResults, resPerPage) => {
-  const pages = Math.ceil(numResults / resPerPage)
+  const pages = Math.ceil(numResults / resPerPage);
 
-  if(){
+  if (page === 1 && pages > 1) {
     //Only next button
-  }else if () {
+  } else if (page < pages) {
     //Both buttons
-  }else if () {
+  } else if (page === pages && page > 1) {
     //Only brev button
   }
-}
+};
 
 export const renderResult = (recipe, page = 1, resPerPage = 5) => {
   const start = (page - 1) * resPerPage;
