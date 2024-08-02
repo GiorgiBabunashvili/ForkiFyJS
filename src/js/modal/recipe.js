@@ -49,6 +49,13 @@ export default class Recipe {
       unitLong.forEach((unit, i) => {
         ingredient = ingredient.replace(unit, unitShorts[i]);
       });
+
+      //2. remove parentheses
+      ingredient = ingredient.replace(/ *\([^)]*\) */g, " ");
+
+      //3. parse ingredients into unit count unit ingredient
+
+      return ingredient;
     });
 
     this.ingredients = newIngredients;
