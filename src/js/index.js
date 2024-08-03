@@ -68,3 +68,8 @@ const controlRecipe = async () => {
 
 window.addEventListener("hashchange", controlRecipe);
 window.addEventListener("load", controlRecipe);
+
+// Heandlig recipe btns click (decrease, increase, like, addShopping)
+elements.recipe.addEventListener("click", (e) => {
+  console.log(e.target);
+});
