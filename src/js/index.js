@@ -71,5 +71,13 @@ window.addEventListener("load", controlRecipe);
 
 // Heandlig recipe btns click (decrease, increase, like, addShopping)
 elements.recipe.addEventListener("click", (e) => {
-  console.log(e.target);
+  if (e.target.matches(".btn-decrease, .btn-decrease *")) {
+    console.log("decrease");
+  } else if (e.target.matches(".btn-decrease, .btn-increase *")) {
+    console.log("increase");
+  } else if (e.target.matches(".recipe__love, .recipe__love *")) {
+    console.log("like");
+  } else if (e.target.matches(".add-shopping, .add-shopping *")) {
+    console.log("add shoppin");
+  }
 });
