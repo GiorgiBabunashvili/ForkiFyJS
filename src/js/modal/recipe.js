@@ -58,8 +58,25 @@ export default class Recipe {
       const unitIndex = arrIng.findIndex((value) => units.includes(value));
 
       let objIng;
+      if (unitIndex > -1) {
+        const arrCount = arrIng.slice(0, unitIndex);
+        let count;
+        if (arrCount.length === 1) {
+          count = eval(arrIng[0]);
+        } else {
+          count = eval(arrCount.json("+"));
+        }
 
-      return ingredient;
+        objIng = {
+          count,
+          unit: arrIng[unitIndex],
+          ingredient: arrIng.slice(unitIndex + 1).json(" "),
+        };
+      } else {
+        //
+      }
+
+      return objIng;
     });
 
     this.ingredients = newIngredients;
