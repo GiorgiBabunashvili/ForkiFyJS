@@ -1,8 +1,10 @@
 import * as searchView from "./view/searchView";
 import * as recipeView from "./view/recipeView";
+import * as listView from "./view/listView";
 import { clearLoader, elements, renderLoader } from "./view/base";
 import Search from "./modal/search";
 import Recipe from "./modal/recipe";
+import List from "./modal/list";
 
 const state = {};
 window.state = state;
@@ -69,6 +71,16 @@ const controlRecipe = async () => {
 window.addEventListener("hashchange", controlRecipe);
 window.addEventListener("load", controlRecipe);
 
+//SHOPPING LIST Controler
+const controllerList = () => {
+  state.list = new List();
+
+  state.recipe.ingredients.forEach((ing) => {
+    const item = state.list.addItems(ing.count, ing.unit, ing.ingredient);
+    listView.renderItem(item);
+  });
+};
+
 // Heandlig recipe btns click (decrease, increase, like, addShopping)
 elements.recipe.addEventListener("click", (e) => {
   if (e.target.matches(".btn-decrease, .btn-decrease *")) {
@@ -82,6 +94,6 @@ elements.recipe.addEventListener("click", (e) => {
   } else if (e.target.matches(".recipe__love, .recipe__love *")) {
     console.log("like");
   } else if (e.target.matches(".add-shopping, .add-shopping *")) {
-    console.log("add shoppin");
+    controllerList();
   }
 });
