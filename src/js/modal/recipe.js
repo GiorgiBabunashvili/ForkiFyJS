@@ -72,8 +72,18 @@ export default class Recipe {
           unit: arrIng[unitIndex],
           ingredient: arrIng.slice(unitIndex + 1).json(" "),
         };
-      } else {
-        //
+      } else if (parseInt(arrIng[0], 10)) {
+        objIng = {
+          count: +arrIng[0],
+          unit: "",
+          ingredient: arrIng.slice(1).join(" "),
+        };
+      } else if (unitIndex === -1) {
+        objIng = {
+          count: 1,
+          unit: "",
+          ingredient,
+        };
       }
 
       return objIng;
