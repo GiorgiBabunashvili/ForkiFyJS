@@ -72,9 +72,13 @@ window.addEventListener("load", controlRecipe);
 // Heandlig recipe btns click (decrease, increase, like, addShopping)
 elements.recipe.addEventListener("click", (e) => {
   if (e.target.matches(".btn-decrease, .btn-decrease *")) {
-    console.log("decrease");
+    if (state.recipe.servings > 1) {
+      state.recipe.updateServings("dec");
+      recipeView.updateServingsIngredients(state.recipe);
+    }
   } else if (e.target.matches(".btn-decrease, .btn-increase *")) {
-    console.log("increase");
+    state.recipe.updateServings("inc");
+    recipeView.updateServingsIngredients(state.recipe);
   } else if (e.target.matches(".recipe__love, .recipe__love *")) {
     console.log("like");
   } else if (e.target.matches(".add-shopping, .add-shopping *")) {
