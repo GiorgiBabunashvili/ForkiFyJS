@@ -73,7 +73,12 @@ const controlRecipe = async () => {
 
 window.addEventListener("load", () => {
   state.like = new Like();
+
+  state.like.readStorage();
+
   likeView.toggleMenu(state.like.getNumLikes());
+
+  state.like.likes.forEach((likEl) => likeView.renderLike(likEl));
 });
 window.addEventListener("hashchange", controlRecipe);
 window.addEventListener("load", controlRecipe);
