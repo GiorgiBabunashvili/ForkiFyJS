@@ -5,6 +5,7 @@ import { clearLoader, elements, renderLoader } from "./view/base";
 import Search from "./modal/search";
 import Recipe from "./modal/recipe";
 import List from "./modal/list";
+import Like from "./modal/like";
 
 const state = {};
 window.state = state;
@@ -100,7 +101,24 @@ elements.shoppingList.addEventListener("click", (e) => {
 });
 
 // LIKE controler
-const controllerLike = () => {};
+const controllerLike = () => {
+  if (!state.like) state.like = new Like();
+
+  const currentID = state.recipe.id;
+
+  if (!state.like.isLiked(currentID)) {
+    //ADD LIKE
+    const newLike = state.like.addLike(
+      currentID,
+      state.recipe.title,
+      state.recipe.author,
+      state.recipe.img
+    );
+  } else {
+    //REMOVE LIKE
+    state.like.deleteLike(currentID);
+  }
+};
 
 // Heandlig recipe btns click (decrease, increase, like, addShopping)
 elements.recipe.addEventListener("click", (e) => {
