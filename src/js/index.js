@@ -121,6 +121,9 @@ const controllerLike = () => {
 
     //toggle button
     likeView.toggleLikeBtn(true);
+
+    //add like to ui
+    likeView.renderLike(newLike);
   } else {
     //REMOVE LIKE
     state.like.deleteLike(currentID);
