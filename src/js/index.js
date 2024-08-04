@@ -130,6 +130,9 @@ const controllerLike = () => {
 
     //toggle button
     likeView.toggleLikeBtn(false);
+
+    //remove like from UI
+    likeView.deleteLike(currentID);
   }
 };
 
