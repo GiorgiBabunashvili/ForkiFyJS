@@ -99,6 +99,9 @@ elements.shoppingList.addEventListener("click", (e) => {
   }
 });
 
+// LIKE controler
+const controllerLike = () => {};
+
 // Heandlig recipe btns click (decrease, increase, like, addShopping)
 elements.recipe.addEventListener("click", (e) => {
   if (e.target.matches(".btn-decrease, .btn-decrease *")) {
@@ -110,7 +113,7 @@ elements.recipe.addEventListener("click", (e) => {
     state.recipe.updateServings("inc");
     recipeView.updateServingsIngredients(state.recipe);
   } else if (e.target.matches(".recipe__love, .recipe__love *")) {
-    console.log("like");
+    controllerLike();
   } else if (e.target.matches(".add-shopping, .add-shopping *")) {
     controllerList();
   }
