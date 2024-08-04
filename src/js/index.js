@@ -63,13 +63,16 @@ const controlRecipe = async () => {
       state.recipe.calcServings();
 
       clearLoader();
-      recipeView.renderRecipe(state.recipe);
+      recipeView.renderRecipe(state.recipe, state.like.isLiked(id));
     } catch (error) {
       alert("Error recipe");
     }
   }
 };
 
+window.addEventListener("load", () => {
+  state.like = new Like();
+});
 window.addEventListener("hashchange", controlRecipe);
 window.addEventListener("load", controlRecipe);
 
