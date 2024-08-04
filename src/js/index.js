@@ -49,10 +49,11 @@ const controlRecipe = async () => {
   const id = window.location.hash.replace("#", "");
 
   if (id) {
-    state.recipe = new Recipe(id);
-
-    renderLoader(elements.recipe);
     recipeView.clearRecipe();
+    renderLoader(elements.recipe);
+    state.search && searchView.highlightSelected(id);
+
+    state.recipe = new Recipe(id);
 
     try {
       await state.recipe.getRecipe();
