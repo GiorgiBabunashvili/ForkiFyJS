@@ -1,6 +1,7 @@
 import * as searchView from "./view/searchView";
 import * as recipeView from "./view/recipeView";
 import * as listView from "./view/listView";
+import * as likeView from "./view/likeView";
 import { clearLoader, elements, renderLoader } from "./view/base";
 import Search from "./modal/search";
 import Recipe from "./modal/recipe";
@@ -117,9 +118,15 @@ const controllerLike = () => {
       state.recipe.author,
       state.recipe.img
     );
+
+    //toggle button
+    likeView.toggleLikeBtn(true);
   } else {
     //REMOVE LIKE
     state.like.deleteLike(currentID);
+
+    //toggle button
+    likeView.toggleLikeBtn(false);
   }
 };
 
