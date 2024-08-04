@@ -82,6 +82,21 @@ const controllerList = () => {
   });
 };
 
+elements.shoppingList.addEventListener("click", (e) => {
+  const id = e.target.closest(".shopping__item").dataset.itemid;
+
+  if (e.target.matches(".shopping__delete, .shopping__delete *")) {
+    //delete
+    state.list.deleteItem(id);
+    //delete from ui
+    listView.deleteItem(id);
+  } else if (
+    e.target.matches(".shopping__count-value, .shopping__count-value *")
+  ) {
+    //update count
+  }
+});
+
 // Heandlig recipe btns click (decrease, increase, like, addShopping)
 elements.recipe.addEventListener("click", (e) => {
   if (e.target.matches(".btn-decrease, .btn-decrease *")) {
