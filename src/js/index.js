@@ -94,6 +94,8 @@ elements.shoppingList.addEventListener("click", (e) => {
     e.target.matches(".shopping__count-value, .shopping__count-value *")
   ) {
     //update count
+    const val = +e.target.value;
+    state.list.updateCount(id, val);
   }
 });
 
