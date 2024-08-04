@@ -8,6 +8,10 @@ export const toggleLikeBtn = (isLiked) => {
     .setAttribute("href", `img/icons.svg#${iconString}`);
 };
 
+export const toggleMenu = (numLike) => {
+  elements.likesMenu.style.visibility = numLike > 0 ? "visible" : "hidden";
+};
+
 export const renderLike = (like) => {
   const markup = `
      <li>

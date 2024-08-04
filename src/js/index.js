@@ -73,6 +73,7 @@ const controlRecipe = async () => {
 
 window.addEventListener("load", () => {
   state.like = new Like();
+  likeView.toggleMenu(state.like.getNumLikes());
 });
 window.addEventListener("hashchange", controlRecipe);
 window.addEventListener("load", controlRecipe);
@@ -134,6 +135,8 @@ const controllerLike = () => {
     //remove like from UI
     likeView.deleteLike(currentID);
   }
+
+  likeView.toggleMenu(state.like.getNumLikes());
 };
 
 // Heandlig recipe btns click (decrease, increase, like, addShopping)
